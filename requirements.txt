@@ -1,0 +1,4 @@
+Para que corra el programa se necesita lo siguiente:
+- Python 3.10 o adelante
+- Flask
+- PyMySQL

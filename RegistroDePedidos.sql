@@ -62,3 +62,13 @@ SHOW WARNINGS;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Predeteminated data for ' Codigos table
+
+INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (1090060,'90 cm x 60 cm','Individual',6000);
+INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (2075070,'75 cm x 70 cm','Horizontal',9000);
+INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (2100070,'100 cm x 70 cm','Horizontal',12000);
+INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (2150070,'150 cm x 70 cm','Horizontal',15000);
+INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (3075070,'75 cm x 70 cm','Vertical',9000);
+INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (3100070,'100 cm x 70 cm','Vertical',12000);
+INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (3150070,'150 cm x 70 cm','Vertical',15000);

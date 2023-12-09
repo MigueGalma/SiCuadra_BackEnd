@@ -11,10 +11,11 @@ app = Flask(__name__)
 
 #registro = contacto()
 
-@app.route("file:///C:/Users/HP/Desktop/Team_12/Sicuadra2/form.html", method='POST')
+@app.route("/form", method='POST')
 def importingData():
     registro = jsonify(contacto.json)
     registro.headers.add('Access-Control-Allow-Origin', '*')
+    
     
 
 

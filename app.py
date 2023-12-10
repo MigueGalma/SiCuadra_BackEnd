@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 registro = contacto()
 
-@app.route("/form", method='POST')
+@app.route("/registro", method='POST')
 def importingData():
     registro = jsonify(contacto.json)
     registro.headers.add('Access-Control-Allow-Origin', '*')
@@ -46,8 +46,8 @@ def importingData():
 
 
 # (3) Ejecutar el programa continuamente en el servidor
-# if __name__ == '__main__':
-#   app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
 
     
 

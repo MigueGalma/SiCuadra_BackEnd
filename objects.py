@@ -26,7 +26,7 @@ class contacto:
 #   150 CM X 70 CM: "medida4"     
 
 
-def generarCodigo (contacto.orientacion, contacto.medidas):
+def generarCodigo (contacto.orientacion,contacto.medidas):
     condiciones = (contacto.orientacion,contacto.medidas)
     match condiciones:
         case ("opcion1","medida1"):
@@ -44,7 +44,7 @@ def generarCodigo (contacto.orientacion, contacto.medidas):
         case ("opcion3","medida4"):
             codigo = 3150070
     return codigo
-
+"""
 
 
 

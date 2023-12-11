@@ -72,3 +72,4 @@ INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (2150070,'15
 INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (3075070,'75 cm x 70 cm','Vertical',9000);
 INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (3100070,'100 cm x 70 cm','Vertical',12000);
 INSERT INTO `` (`idCodigos`,`tamano`,`orientacion`,`precio`) VALUES (3150070,'150 cm x 70 cm','Vertical',15000);
+

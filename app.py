@@ -24,7 +24,7 @@ def importingData():
                               cursorclass=pymysql.cursors.DictCursor)
     with connection:
         with connection.cursor() as cursor:
-            sql = "INSERT INTO `mydb.Formulario` (`nombre`,`apellido`,`email`,`direccion`,`localidad`,`provincia`,`codigopostal`) \
+            sql = "INSERT INTO `Formulario` (`nombre`,`apellido`,`email`,`direccion`,`localidad`,`provincia`,`codigopostal`) \
             VALUES (%s,%s,%s,%s,%s,%s,%s)"
             cursor.execute(sql,
                            (data['nombre'],
@@ -44,10 +44,34 @@ def importingData():
         print(data['codigopostal'])
     return registro
 
+# (2) Se exporta los datos hacia el FrontEnd
+
+@app.route("/respuesta", method='GET')
+def enviarPedido():
+    data=[]
+    connection = pymysql.connect (host='localhost',
+                              user='root',
+                              password='miguel1992',
+                              database='mydb',
+                              charset='utf8',
+                              cursorclass=pymysql.cursors.DictCursor)
+    with connection:
+        with connection.cursor() as cursor:
+            sql = "SELECT `Formulario.nombre`,`Formulario.apellido`,`Codigos.orientacion`,`Codigos.precio`,`Codigos.precios`\
+            FROM `Formulario`\
+            FULL OUTER JOIN `Codigos`\
+            ON `Formulario.Codigo_idCodigos`= `Codigos.idCodigos`\
+            WHERE MAX(`Formulario.idFormulario`)"
+            for row in cursor:
+                data.append(row)
+
+        respuesta = jsonify(data)
+        respuesta.headers.add('Access-Control-Allow-Origin', '*')
+    return respuesta
 
 # (3) Ejecutar el programa continuamente en el servidor
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+#    app.run(debug=True)
 
     
 

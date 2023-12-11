@@ -3,7 +3,7 @@ from flask import jsonify
 from flask import request
 import pymysql
 import pymysql.cursors
-from objects import contacto
+import objects
 
 app = Flask(__name__)
 
@@ -69,7 +69,7 @@ def enviarPedido():
         respuesta.headers.add('Access-Control-Allow-Origin', '*')
     return respuesta
 
-# (3) Ejecutar el programa continuamente en el servidor
+#(3) Ejecutar el programa continuamente en el servidor
 #if __name__ == '__main__':
 #    app.run(debug=True)
 

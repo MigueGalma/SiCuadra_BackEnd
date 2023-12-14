@@ -57,7 +57,7 @@ def enviarPedido():
                               cursorclass=pymysql.cursors.DictCursor)
     with connection:
         with connection.cursor() as cursor:
-            sql = "SELECT `Formulario.nombre`,`Formulario.apellido`,`Codigos.orientacion`,`Codigos.precio`,`Codigos.precios`\
+            sql = "SELECT `Formulario.nombre`,`Formulario.apellido`,`Codigos.orientacion`,`Codigos.tamano`,`Codigos.precios`\
             FROM `Formulario`\
             FULL OUTER JOIN `Codigos`\
             ON `Formulario.Codigo_idCodigos`= `Codigos.idCodigos`\
@@ -72,14 +72,4 @@ def enviarPedido():
 #(3) Ejecutar el programa continuamente en el servidor
 #if __name__ == '__main__':
 #    app.run(debug=True)
-
-    
-
-
-
-
-    
-
-
-
 

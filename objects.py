@@ -29,22 +29,34 @@ class contacto:
 def generarCodigo (contacto.orientacion,contacto.medidas):
     condiciones = (contacto.orientacion,contacto.medidas)
     match condiciones:
-        case ("opcion1","medida1"):
+        case ("orientacion1","medida1"):
             codigo = 1090060
-        case ("opcion2","medida2"):
+        case ("orientacion2","medida2"):
             codigo = 2075070
-        case ("opcion2","medida3"):
+        case ("orientacion2","medida3"):
             codigo = 2100070
-        case ("opcion2","medida4"):
+        case ("orientacion2","medida4"):
             codigo = 2150070
-        case ("opcion3","medida2"):
+        case ("orientacion3","medida2"):
             codigo = 3075070
-        case ("opcion3","medida3"):
+        case ("orientacion3","medida3"):
             codigo = 3100070
-        case ("opcion3","medida4"):
+        case ("orientacion","medida4"):
             codigo = 3150070
     return codigo
-"""
 
+def ingresardatos():
+    nombre = input('Ingresa tu nombre: ')
+    apellido = input('Ingresa tu apellido: ')
+    email = input('Ingresa tu email: ')
+    direccion = input('Ingresa tu direccion: ')
+    localidad = input('Ingresa tu localidad: ')
+    provincia = input('Ingresa tu provincia: ')
+    codigopostal = input('Ingresa tu codigo postal: ')
+    orientacion = input('Ingresa tu orientacion: ')
+    medidas = input('Ingresa tu medida: ')
+    datos = contacto(nombre,apellido,email,direccion,localidad,provincia,codigopostal,orientacion,medidas)
+    print (datos)
+    return datos
 
-
+    

@@ -1,5 +1,5 @@
 class contacto:
-    def __init__(self,nombre,apellido,email,direccion,localidad,provincia,codigopostal,orientacion,medidas):
+    def __init__(self,nombre,apellido,email,direccion,localidad,provincia,codigopostal,codigo):
         self.nombre=nombre
         self.apellido=apellido
         self.email=email
@@ -7,12 +7,10 @@ class contacto:
         self.localidad=localidad
         self.provincia=provincia
         self.codigopostal=codigopostal
-        self.orientacion=orientacion
-        self.medidas=medidas
+        self.codigo=codigo
     def __str__(self):
-        return f"{self.nombre} {self.apellido} {self.email} {self.localidad} {self.provincia} {self.codigopostal} {self.orientacion} {self.medidas}"
-    def __del__(self):
-        print("El registro se ha cargado en la base de datos")
+        return f"{self.nombre} {self.apellido} {self.email} {self.localidad} {self.provincia} {self.codigopostal} {self.codigo}"
+      
 
 # MEDIDAS QUE MANDA EL FORMULARIO TIPO DE DATOS RADIO:
 # ORIENTACION:
@@ -26,8 +24,8 @@ class contacto:
 #   150 CM X 70 CM: "medida4"     
 
 
-def generarCodigo (contacto.orientacion,contacto.medidas):
-    condiciones = (contacto.orientacion,contacto.medidas)
+def generarCodigo (orientacion,contacto):
+    condiciones = (orientacion,contacto)
     match condiciones:
         case ("orientacion1","medida1"):
             codigo = 1090060
@@ -43,8 +41,10 @@ def generarCodigo (contacto.orientacion,contacto.medidas):
             codigo = 3100070
         case ("orientacion","medida4"):
             codigo = 3150070
+    print("Tu codigo es: ", codigo)
     return codigo
 
+"""
 def ingresardatos():
     nombre = input('Ingresa tu nombre: ')
     apellido = input('Ingresa tu apellido: ')
@@ -55,8 +55,8 @@ def ingresardatos():
     codigopostal = input('Ingresa tu codigo postal: ')
     orientacion = input('Ingresa tu orientacion: ')
     medidas = input('Ingresa tu medida: ')
-    datos = contacto(nombre,apellido,email,direccion,localidad,provincia,codigopostal,orientacion,medidas)
+    codigo = generarCodigo(orientacion,medidas)
+    datos = contacto(nombre,apellido,email,direccion,localidad,provincia,codigopostal,codigo)
     print (datos)
-    return datos
 
-    
+"""

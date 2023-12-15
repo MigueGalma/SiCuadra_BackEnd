@@ -3,73 +3,23 @@ from flask import jsonify
 from flask import request
 import pymysql
 import pymysql.cursors
-import objects
+from objects import generarCodigo
+from objects import contacto
 
 app = Flask(__name__)
 
-# (1) Se importa los datos de la pagina del Formulario como un JSON
+#(1) Se van a importar datos desde el formulario hasta la base de datos
 
-registro = contacto()
-
-@app.route("/registro", method='POST')
-def importingData():
-    registro = jsonify(contacto.json)
-    registro.headers.add('Access-Control-Allow-Origin', '*')
+@app.route("/registro", methods=['GET','POST'])
+def recording():
     data = request.form
-    connection = pymysql.connect (host='localhost',
-                              user='root',
-                              password='miguel1992',
-                              database='mydb',
-                              charset='utf8',
-                              cursorclass=pymysql.cursors.DictCursor)
-    with connection:
-        with connection.cursor() as cursor:
-            sql = "INSERT INTO `Formulario` (`nombre`,`apellido`,`email`,`direccion`,`localidad`,`provincia`,`codigopostal`) \
-            VALUES (%s,%s,%s,%s,%s,%s,%s)"
-            cursor.execute(sql,
-                           (data['nombre'],
-                            data['apellido'],
-                            data['email'],
-                            data['direccion'],
-                            data['localidad'],
-                            data['provinicia'],
-                            data['codigopostal']))
-            connection.commit()
-        print(data['nombre'])
-        print(data['apellido'])
-        print(data['email'])
-        print(data['direccion'])
-        print(data['localidad'])
-        print(data['provinicia'])
-        print(data['codigopostal'])
-    return registro
+    print (data)
+    orientacion = data.get('orientacion')
+    medidas = data.get('medidas')
+    codigo = generarCodigo(orientacion,medidas)
+    registro = 
 
-# (2) Se exporta los datos hacia el FrontEnd
-
-@app.route("/respuesta", method='GET')
-def enviarPedido():
-    data=[]
-    connection = pymysql.connect (host='localhost',
-                              user='root',
-                              password='miguel1992',
-                              database='mydb',
-                              charset='utf8',
-                              cursorclass=pymysql.cursors.DictCursor)
-    with connection:
-        with connection.cursor() as cursor:
-            sql = "SELECT `Formulario.nombre`,`Formulario.apellido`,`Codigos.orientacion`,`Codigos.tamano`,`Codigos.precios`\
-            FROM `Formulario`\
-            FULL OUTER JOIN `Codigos`\
-            ON `Formulario.Codigo_idCodigos`= `Codigos.idCodigos`\
-            WHERE MAX(`Formulario.idFormulario`)"
-            for row in cursor:
-                data.append(row)
-
-        respuesta = jsonify(data)
-        respuesta.headers.add('Access-Control-Allow-Origin', '*')
-    return respuesta
-
-#(3) Ejecutar el programa continuamente en el servidor
-#if __name__ == '__main__':
-#    app.run(debug=True)
-
+#(3) Se corre el programa en el servidor
+if __name__ == '__main__':
+    app.run(debug=True)
+   

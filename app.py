@@ -4,7 +4,6 @@ from flask import request
 import pymysql
 import pymysql.cursors
 from objects import generarCodigo
-from objects import contacto
 
 app = Flask(__name__)
 
@@ -17,7 +16,30 @@ def recording():
     orientacion = data.get('orientacion')
     medidas = data.get('medidas')
     codigo = generarCodigo(orientacion,medidas)
-    registro = 
+    connection = pymysql.connect (host='localhost',
+                                  user='root',
+                                  password='',
+                                  database='scdb',
+                                  charset='utf8',
+                                  cursorclass=pymysql.cursors.DictCursor)
+    with connection:
+        with connection.cursor() as cursor:
+            sql1 = "INSERT INTO `Registros` (`nombre`,`apellido`,`email`,`direccion`,`localidad`,`provincia`,`codigopostal`,`tematica`,`codigo`)\
+                   VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            cursor.execute(sql1,
+                           (data['nombre'],
+                           data['apellido'],
+                           data['email'],
+                           data['direccion'],
+                           data['localidad'],
+                           data['provincia'],
+                           data['codigopostal'],
+                           data['tematica'],
+                           codigo))
+            connection.commit()
+    return data
+
+                 
 
 #(3) Se corre el programa en el servidor
 if __name__ == '__main__':

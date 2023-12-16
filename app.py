@@ -4,12 +4,11 @@ from flask import request
 import pymysql
 import pymysql.cursors
 from objects import generarCodigo
-from objects import Consulta
 
 app = Flask(__name__)
 
 #(1) Se van a importar datos desde el formulario hasta la base de datos
-"""
+
 @app.route("/registro", methods=['GET','POST'])
 def recording():
     data = request.form
@@ -39,7 +38,7 @@ def recording():
                            codigo))
             connection.commit()
     return data
-"""
+
 
 @app.route("/respuesta")
 def answering():
@@ -61,17 +60,11 @@ def answering():
             cursor.execute(sql2)
             for row in cursor:
                 vector.append(row)
-            repuesta = Consulta(vector['idRegistro'],
-                                vector['nombre'],
-                                vector['apellido'],
-                                vector['tematica'],
-                                vector['orientacion'],
-                                vector['medida'],
-                                vector['precio'])
-            print(respuesta)
+            print(vector)
+            answer = jsonify(vector)
+            answer.headers.add('Access-Control-Allow-Origin', '*')
             
-
-    return vector
+    return answer
 
 
    

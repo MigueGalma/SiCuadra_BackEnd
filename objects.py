@@ -1,21 +1,4 @@
-class Consulta:
-    def __init__(self,nroregistro,nombre,apellido,tematica,orientacion,medida,precio):
-        self.nroregistro = nroregistro
-        self.nombre = nombre
-        self.apellido = apellido
-        self.tematica = tematica
-        self.orientacion = orientacion
-        self.medida = medida
-        self.precio = precio
-       
-    def __str__(self):
-        return f" [nroregistro : {self.nroregistro}, 
-                  nombre: {self.nombre},
-                  apellido: {self.apellido},
-                  tematica: {self.tematica},
-                  orientacion: {self.orientacion},
-                  medida: {self.medida},
-                  precio: {self.precio}]"
+
 
 # MEDIDAS QUE MANDA EL FORMULARIO TIPO DE DATOS RADIO:
 # ORIENTACION:

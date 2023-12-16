@@ -1,22 +1,27 @@
-class contacto:
-    def __init__(self,nombre,apellido,email,direccion,localidad,provincia,codigopostal,codigo):
-        self.nombre=nombre
-        self.apellido=apellido
-        self.email=email
-        self.direccion=direccion
-        self.localidad=localidad
-        self.provincia=provincia
-        self.codigopostal=codigopostal
-        self.codigo=codigo
+class Consulta:
+    def __init__(self,nroregistro,nombre,apellido,tematica,orientacion,medida,precio):
+        self.nroregistro = nroregistro
+        self.nombre = nombre
+        self.apellido = apellido
+        self.tematica = tematica
+        self.orientacion = orientacion
+        self.medida = medida
+        self.precio = precio
+       
     def __str__(self):
-        return f"{self.nombre} {self.apellido} {self.email} {self.localidad} {self.provincia} {self.codigopostal} {self.codigo}"
-      
+        return f" [nroregistro : {self.nroregistro}, 
+                  nombre: {self.nombre},
+                  apellido: {self.apellido},
+                  tematica: {self.tematica},
+                  orientacion: {self.orientacion},
+                  medida: {self.medida},
+                  precio: {self.precio}]"
 
 # MEDIDAS QUE MANDA EL FORMULARIO TIPO DE DATOS RADIO:
 # ORIENTACION:
-#   INDIVIDUAL: "opcion1"
-#   HORIZONTAL: "opcion2"
-#   VERTICAL: "opcion3"
+#   INDIVIDUAL: "orientacion1"
+#   HORIZONTAL: "orientacion2"
+#   VERTICAL: "orientacion3"
 # MEDIDAS:
 #   90 CM X 60 CM: "medida1"
 #   75 CM X 70 CM: "medida2"
@@ -39,7 +44,7 @@ def generarCodigo (orientacion,contacto):
             codigo = 3075070
         case ("orientacion3","medida3"):
             codigo = 3100070
-        case ("orientacion","medida4"):
+        case ("orientacion3","medida4"):
             codigo = 3150070
     print("Tu codigo es: ", codigo)
     return codigo

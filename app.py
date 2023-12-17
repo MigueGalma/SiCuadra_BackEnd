@@ -3,12 +3,12 @@ from flask import jsonify
 from flask import request
 import pymysql
 import pymysql.cursors
-from objects import generarCodigo
+from functions import generarCodigo
 
-app = Flask(__name__)
+app=Flask(__name__)
 
 #(1) Se van a importar datos desde el formulario hasta la base de datos
-"""
+
 @app.route("/registro", methods=['GET','POST'])
 def recording():
     data = request.form
@@ -38,9 +38,9 @@ def recording():
                            codigo))
             connection.commit()
     return data
-"""
 
-@app.route("/respuesta")
+
+@app.route("/respuesta", methods =['GET'])
 def answering():
     vector =[]
     connection = pymysql.connect (host='localhost',
@@ -61,16 +61,9 @@ def answering():
             for row in cursor:
                 vector.append(row)
             print(vector)
-            answer = jsonify(vector)
-            
-            
-    
-
-
-   
-
+            answer = jsonify(vector)   
+    return vector
                  
-
 #(3) Se corre el programa en el servidor
 if __name__ == '__main__':
     app.run(debug=True)

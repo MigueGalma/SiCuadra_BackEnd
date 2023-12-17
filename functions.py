@@ -1,5 +1,3 @@
-
-
 # MEDIDAS QUE MANDA EL FORMULARIO TIPO DE DATOS RADIO:
 # ORIENTACION:
 #   INDIVIDUAL: "orientacion1"
@@ -31,20 +29,3 @@ def generarCodigo (orientacion,contacto):
             codigo = 3150070
     print("Tu codigo es: ", codigo)
     return codigo
-
-"""
-def ingresardatos():
-    nombre = input('Ingresa tu nombre: ')
-    apellido = input('Ingresa tu apellido: ')
-    email = input('Ingresa tu email: ')
-    direccion = input('Ingresa tu direccion: ')
-    localidad = input('Ingresa tu localidad: ')
-    provincia = input('Ingresa tu provincia: ')
-    codigopostal = input('Ingresa tu codigo postal: ')
-    orientacion = input('Ingresa tu orientacion: ')
-    medidas = input('Ingresa tu medida: ')
-    codigo = generarCodigo(orientacion,medidas)
-    datos = contacto(nombre,apellido,email,direccion,localidad,provincia,codigopostal,codigo)
-    print (datos)
-
-"""

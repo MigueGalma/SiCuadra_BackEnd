@@ -61,8 +61,9 @@ def answering():
             for row in cursor:
                 vector.append(row)
             print(vector)
-            answer = jsonify(vector)   
-    return vector
+            answer = jsonify(vector)
+            answer.headers.add('Access-Control-Allow-Origin', '*')   
+    return answer
                  
 #(3) Se corre el programa en el servidor
 if __name__ == '__main__':

@@ -27,5 +27,4 @@ def generarCodigo (orientacion,contacto):
             codigo = 3100070
         case ("orientacion3","medida4"):
             codigo = 3150070
-    print("Tu codigo es: ", codigo)
     return codigo
